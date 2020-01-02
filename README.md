@@ -24,7 +24,7 @@
 
 
 * <2019-12-30 Mon> Privacy-Preserving Triangle counting in large graphs
-PDFs/ding-triangles-cokm18.pdf
+[[files://PDFs/ding-triangles-cokm18.pdf]]
 
   This paper describes a method to release triangle counting in term of a privated historgram of nodes attached to different counts of triangles in a graph.
 
