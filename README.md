@@ -1,4 +1,4 @@
-# Differential Privacy Reading list
+# Differential Privacy Agenda
 
 * <2019-12-30 Mon> Review Dwork & Roth Book chapter 3
   PDFs/dwork-roth-privacybook.pdf
