@@ -1,7 +1,7 @@
 # Differential Privacy Agenda
 
 * <2019-12-30 Mon> Review Dwork & Roth Book chapter 3
-  PDFs/dwork-roth-privacybook.pdf
+  [[PDFs/dwork-roth-privacybook.pdf]]
 
 ** Section 3.4 Exponential Mechanism
    - It's designed to produce outputs which are sensitive to their utility function
@@ -24,7 +24,7 @@
 
 
 * <2019-12-30 Mon> Privacy-Preserving Triangle counting in large graphs
-[[files://PDFs/ding-triangles-cokm18.pdf]]
+  [[PDFs/ding-triangles-cokm18.pdf]]
 
   This paper describes a method to release triangle counting in term of a privated historgram of nodes attached to different counts of triangles in a graph.
 
