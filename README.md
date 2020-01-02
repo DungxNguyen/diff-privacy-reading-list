@@ -3,12 +3,14 @@
 * <2019-12-30 Mon> Review Dwork & Roth Book chapter 3
   PDFs/dwork-roth-privacybook.pdf
 
-** Section 3.1
+** Section 3.4 Exponential Mechanism
+   - It's designed to produce outputs which are sensitive to their utility function
+   - Rather than adding noise directly to outputs (Laplace), it produces a output with probability proportional to (utility score / sensitivity)
+     - Higher utility -> better chance to be sampled
 
+** Section 3.5 Composition
 
-** Section 3.2
-
-** Section 3.3
+** Section 3.6
 
 
 * <2019-12-30 Mon> Review Differentially Private Data Analysis of Social Networks via Restricted Sensitivity
