@@ -16,7 +16,7 @@
 * <2019-12-30 Mon> Review Differentially Private Data Analysis of Social Networks via Restricted Sensitivity
   https://arxiv.org/pdf/1208.4586
 
-  This paper is a parallel work to Shiva's paper. Their ideas about calculating sensitivity is similar, though the methods to achive them are different.
+  This paper is a parallel work to Shiva's paper. Their (Shiva and Bloki) ideas about calculating sensitivity are similar, though the methods to achive them are different.
 
   Both papers project an arbitrary graph to another graph space, where they can restrict some graph's attributes such as maximum degrees. With the restriction, both sensitivities are bounded to a much smaller level than originial global sensitivity.
 
