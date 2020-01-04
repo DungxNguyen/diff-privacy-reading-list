@@ -1,43 +1,49 @@
 
 # Table of Contents
 
-1.  [<span class="timestamp-wrapper"><span class="timestamp">&lt;2019-12-30 Mon&gt; </span></span> Review Dwork & Roth Book chapter 3](#orgfe35fed)
-    1.  [Section 3.4 Exponential Mechanism](#orgad9f7e3)
-    2.  [Section 3.5 Composition](#orgf487c61)
-    3.  [Section 3.6](#orga46b288)
-2.  [<span class="timestamp-wrapper"><span class="timestamp">&lt;2019-12-30 Mon&gt; </span></span> Review Differentially Private Data Analysis of Social Networks via Restricted Sensitivity](#org3b66b72)
-3.  [<span class="timestamp-wrapper"><span class="timestamp">&lt;2019-12-30 Mon&gt; </span></span> Privacy-Preserving Triangle counting in large graphs](#org9e86c49)
+1.  [<span class="timestamp-wrapper"><span class="timestamp">&lt;2019-12-30 Mon&gt; </span></span> Reading lists](#org0fe094f)
+    1.  [Review Dwork & Roth Book chapter 3](#org723e01d)
+        1.  [Section 3.4 Exponential Mechanism](#orgac5996c)
+        2.  [Section 3.5 Composition](#org0a83d38)
+        3.  [Section 3.6](#org0bddb42)
+    2.  [Review Differentially Private Data Analysis of Social Networks via Restricted Sensitivity](#org1b19c7d)
+    3.  [<span class="timestamp-wrapper"><span class="timestamp">&lt;2019-12-30 Mon&gt; </span></span> Privacy-Preserving Triangle counting in large graphs](#org48f0efe)
 
 
-<a id="orgfe35fed"></a>
+<a id="org0fe094f"></a>
 
-# <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-12-30 Mon&gt; </span></span> Review Dwork & Roth Book chapter 3
+# <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-12-30 Mon&gt; </span></span> Reading lists
+
+
+<a id="org723e01d"></a>
+
+## Review Dwork & Roth Book chapter 3
 
 <./PDFs/dwork-roth-privacybook.pdf>
 
 
-<a id="orgad9f7e3"></a>
+<a id="orgac5996c"></a>
 
-## Section 3.4 Exponential Mechanism
+### Section 3.4 Exponential Mechanism
 
 -   It's designed to produce outputs which are sensitive to their utility function
 -   Rather than adding noise directly to outputs (Laplace), it produces a output with probability proportional to (utility score / sensitivity)
     -   Higher utility -> better chance to be sampled
 
 
-<a id="orgf487c61"></a>
+<a id="org0a83d38"></a>
 
-## Section 3.5 Composition
-
-
-<a id="orga46b288"></a>
-
-## Section 3.6
+### Section 3.5 Composition
 
 
-<a id="org3b66b72"></a>
+<a id="org0bddb42"></a>
 
-# <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-12-30 Mon&gt; </span></span> Review Differentially Private Data Analysis of Social Networks via Restricted Sensitivity
+### Section 3.6
+
+
+<a id="org1b19c7d"></a>
+
+## Review Differentially Private Data Analysis of Social Networks via Restricted Sensitivity
 
 <https://arxiv.org/pdf/1208.4586>
 
@@ -48,9 +54,9 @@ Both papers project an arbitrary graph to another graph space, where they can re
 While Shiva's paper uses Lipschitz extension to project a graph to a linear programming problem, this paper's method uses a more abstract method to generalize those projections. As long as there is a way to project the original graph space to a restricted one, and the distances of neighbor graphs after projected are bounded by a constant, it's possible to calculate a restricted sensitivity and use it as an alternative to the global sensitivity.
 
 
-<a id="org9e86c49"></a>
+<a id="org48f0efe"></a>
 
-# <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-12-30 Mon&gt; </span></span> Privacy-Preserving Triangle counting in large graphs
+## <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-12-30 Mon&gt; </span></span> Privacy-Preserving Triangle counting in large graphs
 
 <./PDFs/ding-triangles-cokm18.pdf>
 
