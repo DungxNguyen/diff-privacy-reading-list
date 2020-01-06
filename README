@@ -1,7 +1,10 @@
-# Differential Privacy Agenda
+# Work Agenda -*- mode: org -*-
+#+STARTUP: showall
+#+TODO: TODO IN-PROGRESS DELAY DONE
+#+TAGS: URGENT(u) EMACS(e) RESEARCH(r) HOME(h) CLASS(c) BOOK(b)
+#+Title:Differential Privacy Agenda
 
-* <2019-12-30 Mon> Reading lists
-
+* <2020-01-06 Mon> Reading list
 ** Review Dwork & Roth Book chapter 3
   [[./PDFs/dwork-roth-privacybook.pdf]]
 
@@ -15,6 +18,9 @@
 *** Section 3.6
 
 
+
+* <2019-12-30 Mon> Reading lists
+
 ** Review Differentially Private Data Analysis of Social Networks via Restricted Sensitivity
   https://arxiv.org/pdf/1208.4586
 
@@ -25,7 +31,7 @@
   While Shiva's paper uses Lipschitz extension to project a graph to a linear programming problem, this paper's method uses a more abstract method to generalize those projections. As long as there is a way to project the original graph space to a restricted one, and the distances of neighbor graphs after projected are bounded by a constant, it's possible to calculate a restricted sensitivity and use it as an alternative to the global sensitivity.
 
 
-** <2019-12-30 Mon> Privacy-Preserving Triangle counting in large graphs
+** Privacy-Preserving Triangle counting in large graphs
   [[./PDFs/ding-triangles-cokm18.pdf]]
 
   This paper describes a method to release triangle counting in term of a privated historgram of nodes attached to different counts of triangles in a graph.

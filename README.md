@@ -1,28 +1,30 @@
 
 # Table of Contents
 
-1.  [<span class="timestamp-wrapper"><span class="timestamp">&lt;2019-12-30 Mon&gt; </span></span> Reading lists](#org0fe094f)
-    1.  [Review Dwork & Roth Book chapter 3](#org723e01d)
-        1.  [Section 3.4 Exponential Mechanism](#orgac5996c)
-        2.  [Section 3.5 Composition](#org0a83d38)
-        3.  [Section 3.6](#org0bddb42)
-    2.  [Review Differentially Private Data Analysis of Social Networks via Restricted Sensitivity](#org1b19c7d)
-    3.  [<span class="timestamp-wrapper"><span class="timestamp">&lt;2019-12-30 Mon&gt; </span></span> Privacy-Preserving Triangle counting in large graphs](#org48f0efe)
+1.  [<span class="timestamp-wrapper"><span class="timestamp">&lt;2020-01-06 Mon&gt; </span></span> Reading list](#org5a2f08d)
+    1.  [Review Dwork & Roth Book chapter 3](#org96a43e4)
+        1.  [Section 3.4 Exponential Mechanism](#orgb752f38)
+        2.  [Section 3.5 Composition](#org0f1adc3)
+        3.  [Section 3.6](#org593bf1b)
+2.  [<span class="timestamp-wrapper"><span class="timestamp">&lt;2019-12-30 Mon&gt; </span></span> Reading lists](#org0c641b4)
+    1.  [Review Differentially Private Data Analysis of Social Networks via Restricted Sensitivity](#org91411d2)
+    2.  [Privacy-Preserving Triangle counting in large graphs](#org7ad25ac)
 
 
-<a id="org0fe094f"></a>
 
-# <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-12-30 Mon&gt; </span></span> Reading lists
+<a id="org5a2f08d"></a>
+
+# <span class="timestamp-wrapper"><span class="timestamp">&lt;2020-01-06 Mon&gt; </span></span> Reading list
 
 
-<a id="org723e01d"></a>
+<a id="org96a43e4"></a>
 
 ## Review Dwork & Roth Book chapter 3
 
 <./PDFs/dwork-roth-privacybook.pdf>
 
 
-<a id="orgac5996c"></a>
+<a id="orgb752f38"></a>
 
 ### Section 3.4 Exponential Mechanism
 
@@ -31,17 +33,22 @@
     -   Higher utility -> better chance to be sampled
 
 
-<a id="org0a83d38"></a>
+<a id="org0f1adc3"></a>
 
 ### Section 3.5 Composition
 
 
-<a id="org0bddb42"></a>
+<a id="org593bf1b"></a>
 
 ### Section 3.6
 
 
-<a id="org1b19c7d"></a>
+<a id="org0c641b4"></a>
+
+# <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-12-30 Mon&gt; </span></span> Reading lists
+
+
+<a id="org91411d2"></a>
 
 ## Review Differentially Private Data Analysis of Social Networks via Restricted Sensitivity
 
@@ -54,9 +61,9 @@ Both papers project an arbitrary graph to another graph space, where they can re
 While Shiva's paper uses Lipschitz extension to project a graph to a linear programming problem, this paper's method uses a more abstract method to generalize those projections. As long as there is a way to project the original graph space to a restricted one, and the distances of neighbor graphs after projected are bounded by a constant, it's possible to calculate a restricted sensitivity and use it as an alternative to the global sensitivity.
 
 
-<a id="org48f0efe"></a>
+<a id="org7ad25ac"></a>
 
-## <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-12-30 Mon&gt; </span></span> Privacy-Preserving Triangle counting in large graphs
+## Privacy-Preserving Triangle counting in large graphs
 
 <./PDFs/ding-triangles-cokm18.pdf>
 
