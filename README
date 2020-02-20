@@ -4,6 +4,27 @@
 #+TAGS: URGENT(u) EMACS(e) RESEARCH(r) HOME(h) CLASS(c) BOOK(b)
 #+Title:Differential Privacy Agenda
 
+
+* <2020-02-20 Thu> Survey
+** Section 3.1
+   The goal of papers this section is to maximize the number of (interactive) queries given a fixed amount of privacy loss and accuracy (usefulness). Traditionally, using Laplace mechanism, the magnitude of noise must scale linearly to the number of answered queries to preserve privacy. Given a fixed level of usefulness, Laplace mechanism can only answer a linear number of queries. There are several common settings of papers in this sections:
+   - Interactive: the k-th query is released after answers from 1, .., k-1th queries are known
+   - Database D can be changed any time in between queries
+*** Interactive Privacy via the Median Mechanism (Roth'10)
+    - All queries are fractional queries (answer which fraction of database D has some properties)
+    - Initiate the database set of all databases of size n
+    - Divide queries into 2 categories: easy & hard
+    - Easy queries are answered by the median answers of
+      - previous databases, which are consistent in the answers of previous hard queries
+    - Hard queries are answered by Laplace mechanism
+      - Remove databases from the database set which are inconsistent with the new answer
+    - Stop when there is not enough database in the set
+    - The mechanism can answer O(logklog|X|) hard queries
+      
+*** 
+** 
+** Section 3.2
+
 * <2020-01-06 Mon> Reading list
 ** Review Dwork & Roth Book chapter 3
   [[./PDFs/dwork-roth-privacybook.pdf]]

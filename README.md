@@ -1,30 +1,81 @@
 
 # Table of Contents
 
-1.  [<span class="timestamp-wrapper"><span class="timestamp">&lt;2020-01-06 Mon&gt; </span></span> Reading list](#org932c8e1)
-    1.  [Review Dwork & Roth Book chapter 3](#orge41a35c)
-        1.  [Section 3.4 Exponential Mechanism](#org1291a9f)
-        2.  [Section 3.5 Composition](#orgc2365e5)
-        3.  [Section 3.6 Sparse Vector Technique](#org9cda9bd)
-2.  [<span class="timestamp-wrapper"><span class="timestamp">&lt;2019-12-30 Mon&gt; </span></span> Reading lists](#org14f4c53)
-    1.  [Review Differentially Private Data Analysis of Social Networks via Restricted Sensitivity](#orgddeacad)
-    2.  [Privacy-Preserving Triangle counting in large graphs](#org3396ef3)
+1.  [<span class="timestamp-wrapper"><span class="timestamp">&lt;2020-02-20 Thu&gt; </span></span> Survey](#org5daa16e)
+    1.  [Section 3.1](#org21b92e8)
+        1.  [Interactive Privacy via the Median Mechanism (Roth'10)](#orgba542b0)
+        2.  [](#org4f5d55b)
+    2.  [](#org5efafb1)
+    3.  [Section 3.2](#orge4d7301)
+2.  [<span class="timestamp-wrapper"><span class="timestamp">&lt;2020-01-06 Mon&gt; </span></span> Reading list](#org032510f)
+    1.  [Review Dwork & Roth Book chapter 3](#orga5c6c85)
+        1.  [Section 3.4 Exponential Mechanism](#orgf6681d4)
+        2.  [Section 3.5 Composition](#org411cddb)
+        3.  [Section 3.6 Sparse Vector Technique](#org85415d9)
+3.  [<span class="timestamp-wrapper"><span class="timestamp">&lt;2019-12-30 Mon&gt; </span></span> Reading lists](#org7a51854)
+    1.  [Review Differentially Private Data Analysis of Social Networks via Restricted Sensitivity](#orga2eae00)
+    2.  [Privacy-Preserving Triangle counting in large graphs](#org65bcf3c)
 
 
 
-<a id="org932c8e1"></a>
+<a id="org5daa16e"></a>
+
+# <span class="timestamp-wrapper"><span class="timestamp">&lt;2020-02-20 Thu&gt; </span></span> Survey
+
+
+<a id="org21b92e8"></a>
+
+## Section 3.1
+
+The goal of papers this section is to maximize the number of (interactive) queries given a fixed amount of privacy loss and accuracy (usefulness). Traditionally, using Laplace mechanism, the magnitude of noise must scale linearly to the number of answered queries to preserve privacy. Given a fixed level of usefulness, Laplace mechanism can only answer a linear number of queries. There are several common settings of papers in this sections:
+
+-   Interactive: the k-th query is released after answers from 1, .., k-1th queries are known
+-   Database D can be changed any time in between queries
+
+
+<a id="orgba542b0"></a>
+
+### Interactive Privacy via the Median Mechanism (Roth'10)
+
+-   All queries are fractional queries (answer which fraction of database D has some properties)
+-   Initiate the database set of all databases of size n
+-   Divide queries into 2 categories: easy & hard
+-   Easy queries are answered by the median answers of
+    -   previous databases, which are consistent in the answers of previous hard queries
+-   Hard queries are answered by Laplace mechanism
+    -   Remove databases from the database set which are inconsistent with the new answer
+-   Stop when there is not enough database in the set
+-   The mechanism can answer O(logklog|X|) hard queries
+
+
+<a id="org4f5d55b"></a>
+
+### 
+
+
+<a id="org5efafb1"></a>
+
+## 
+
+
+<a id="orge4d7301"></a>
+
+## Section 3.2
+
+
+<a id="org032510f"></a>
 
 # <span class="timestamp-wrapper"><span class="timestamp">&lt;2020-01-06 Mon&gt; </span></span> Reading list
 
 
-<a id="orge41a35c"></a>
+<a id="orga5c6c85"></a>
 
 ## Review Dwork & Roth Book chapter 3
 
 <./PDFs/dwork-roth-privacybook.pdf>
 
 
-<a id="org1291a9f"></a>
+<a id="orgf6681d4"></a>
 
 ### Section 3.4 Exponential Mechanism
 
@@ -34,7 +85,7 @@
 -   Exponential Mechanism guarantees the accuracy by a additive factor of the optimal utility score
 
 
-<a id="orgc2365e5"></a>
+<a id="org411cddb"></a>
 
 ### Section 3.5 Composition
 
@@ -44,17 +95,17 @@
 -   KL Distance. Max Distance. Approximate Max Distance
 
 
-<a id="org9cda9bd"></a>
+<a id="org85415d9"></a>
 
 ### Section 3.6 Sparse Vector Technique
 
 
-<a id="org14f4c53"></a>
+<a id="org7a51854"></a>
 
 # <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-12-30 Mon&gt; </span></span> Reading lists
 
 
-<a id="orgddeacad"></a>
+<a id="orga2eae00"></a>
 
 ## Review Differentially Private Data Analysis of Social Networks via Restricted Sensitivity
 
@@ -67,7 +118,7 @@ Both papers project an arbitrary graph to another graph space, where they can re
 While Shiva's paper uses Lipschitz extension to project a graph to a linear programming problem, this paper's method uses a more abstract method to generalize those projections. As long as there is a way to project the original graph space to a restricted one, and the distances of neighbor graphs after projected are bounded by a constant, it's possible to calculate a restricted sensitivity and use it as an alternative to the global sensitivity.
 
 
-<a id="org3396ef3"></a>
+<a id="org65bcf3c"></a>
 
 ## Privacy-Preserving Triangle counting in large graphs
 
