@@ -7,7 +7,7 @@
 
 * <2020-02-20 Thu> Survey
 ** Section 3.1
-   The goal of papers this section is to maximize the number of (interactive) queries given a fixed amount of privacy loss and accuracy (usefulness). Traditionally, using Laplace mechanism, the magnitude of noise must scale linearly to the number of answered queries to preserve privacy. Given a fixed level of usefulness, Laplace mechanism can only answer a linear number of queries. There are several common settings of papers in this sections:
+   The goal of papers this section is to maximize the number of (interactive) queries given a fixed amount of privacy loss and accuracy (usefulness). Traditionally, using Laplace mechanism, the magnitude of noise must scale linearly to the number of answered queries to preserve privacy. Given a fixed level of usefulness, Laplace mechanism can only answer a linear number of queries to the database size. There are several common settings of papers in this sections:
    - Interactive: the k-th query is released after answers from 1, .., k-1th queries are known
    - Database D can be changed any time in between queries
 *** Interactive Privacy via the Median Mechanism (Roth'10)
@@ -21,7 +21,31 @@
     - Stop when there is not enough database in the set
     - The mechanism can answer O(logklog|X|) hard queries
       
-*** 
+*** A multiplicative weights mechanism for privacy-preserving data analysis (Hardt'10)
+    - Answer counting queries
+    - View databases as histograms or distributions (databases must be transformed to histogram forms)
+    - Easy query: if noisy answer by Laplace mechanism is not far from fractional database, release the answer of the fractional database
+    - Hard query: return the noisy answer by Laplace mechanism
+      - At each iteration, update a fractional database, which is a multiplicative weighted version of all previous iterations
+
+*** Iterative constructions and private data release (Gupta'12)
+    - Iterative database construction
+    - Data: Graphs. Queries: cut functions
+    - For every queries:
+      - If noisy answer is not far from answer of the database sequence, output the answer of database sequence and keep the database sequence the same for next iteration
+      - If noisy answer is far from answer of the database sequence, update the database sequence to satisfy:
+	- Difference between the answers of a query of the last database and others are large
+	- Difference between the noisy answer of a query of the last database to the answers of others are small
+	  
+*** Exploiting metric structure for efficient private query release (Huang'14)
+    - Settings: Database is a collection of points in metric space
+    - Queries: average distance from an arbitrary point to some points in a database
+    - The algorithm works for L1 distance query
+    - Using online learning:
+      - Map queries to answers
+      - Update the mapping when the function is not correct
+    - This mechanism does not use Laplace mechanism
+
 ** 
 ** Section 3.2
 
