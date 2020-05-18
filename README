@@ -5,6 +5,34 @@
 #+Title:Differential Privacy Agenda
 
 
+* <2020-05-18 Mon> Differentially Private SQL
+  - Assumption: DP at user level. Each user can be related to multiple entries.
+  - Issues the paper want to solve:
+    - A user contributes to multiple rows in the same partition (1) and multiple partitions (3)
+    - The group-by results may expose a group key (2): among 2 neighbors, a group key can exist in one and not the other.
+      - Resolve using threshold technique (Sparse vector technique in Dwork's book)
+  - The library on github only implements primitive functions, other features have not been implemented yet.
+  - Key designs:
+    - Column to map a user -> row (additional column of userid)
+    - Primitive queries are computed using Laplace noises, with global sensitivities calculated by bounds of the inputs (as query parameters) 
+      - Some bounds can be inferred from data (5.1.1)
+      - Primitime queries can not create share-owned rows
+    - What is "reservoir sampling"?
+      - Guess: sampling with a constraint that each partition can have at most some fixed numbers of rows.
+    - Reservoir sampling in the 1st phase (U) guarantees a fixed global stability
+    - Main idea: Decompose a join/group queries by to join/group by each user first, then join/group the intermediate results.
+    - A private query is divided into 2 phases:
+      - The 1st phase non-privately aggregate by users x keys and limits the # of output rows for each user (by reservoir sampling)
+      - The 2nd phase use primitive private functions to aggregate the (by user's output) and use threshold to report final outputs
+  - (1) is solved by forcing the aggregation in the 1st phase to group by userid x keys -> each (userid x keys) can create at most 1 row in U.
+  - (2) is solved by threshold at the end
+  - (3) is solved by reservoir sampling how many rows each userid have in U
+
+* <2020-02-20 Thu> DPNE: Differentially Private Network Embedding
+  - Edge Privacy
+  - Naive baseline
+  - Laplace mechanism
+
 * <2020-02-20 Thu> Survey
 ** Section 3.1
    The goal of papers this section is to maximize the number of (interactive) queries given a fixed amount of privacy loss and accuracy (usefulness). Traditionally, using Laplace mechanism, the magnitude of noise must scale linearly to the number of answered queries to preserve privacy. Given a fixed level of usefulness, Laplace mechanism can only answer a linear number of queries to the database size. There are several common settings of papers in this sections:

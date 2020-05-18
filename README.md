@@ -1,31 +1,69 @@
 
 # Table of Contents
 
-1.  [<span class="timestamp-wrapper"><span class="timestamp">&lt;2020-02-20 Thu&gt; </span></span> Survey](#org1659e35)
-    1.  [Section 3.1](#orgd0e5018)
-        1.  [Interactive Privacy via the Median Mechanism (Roth'10)](#org2d471e4)
-        2.  [A multiplicative weights mechanism for privacy-preserving data analysis (Hardt'10)](#org38797ce)
-        3.  [Iterative constructions and private data release (Gupta'12)](#orgca3ea45)
-        4.  [Exploiting metric structure for efficient private query release (Huang'14)](#org8a4a345)
-    2.  [](#org3148a3b)
-    3.  [Section 3.2](#org9d63c87)
-2.  [<span class="timestamp-wrapper"><span class="timestamp">&lt;2020-01-06 Mon&gt; </span></span> Reading list](#org8c7acf8)
-    1.  [Review Dwork & Roth Book chapter 3](#org9fb120d)
-        1.  [Section 3.4 Exponential Mechanism](#org3e4db62)
-        2.  [Section 3.5 Composition](#org18c31bc)
-        3.  [Section 3.6 Sparse Vector Technique](#org7f3f81c)
-3.  [<span class="timestamp-wrapper"><span class="timestamp">&lt;2019-12-30 Mon&gt; </span></span> Reading lists](#orgd329e11)
-    1.  [Review Differentially Private Data Analysis of Social Networks via Restricted Sensitivity](#org4bf8c84)
-    2.  [Privacy-Preserving Triangle counting in large graphs](#orgc44648a)
+1.  [<span class="timestamp-wrapper"><span class="timestamp">&lt;2020-05-18 Mon&gt; </span></span> Differentially Private SQL](#org58b2ac7)
+2.  [<span class="timestamp-wrapper"><span class="timestamp">&lt;2020-02-20 Thu&gt; </span></span> DPNE: Differentially Private Network Embedding](#org1e57426)
+3.  [<span class="timestamp-wrapper"><span class="timestamp">&lt;2020-02-20 Thu&gt; </span></span> Survey](#orge953ab0)
+    1.  [Section 3.1](#org874c97e)
+        1.  [Interactive Privacy via the Median Mechanism (Roth'10)](#orgfd85df1)
+        2.  [A multiplicative weights mechanism for privacy-preserving data analysis (Hardt'10)](#org5d49d98)
+        3.  [Iterative constructions and private data release (Gupta'12)](#orga12f09d)
+        4.  [Exploiting metric structure for efficient private query release (Huang'14)](#org3bb4fab)
+    2.  [](#orga443948)
+    3.  [Section 3.2](#org0fc6feb)
+4.  [<span class="timestamp-wrapper"><span class="timestamp">&lt;2020-01-06 Mon&gt; </span></span> Reading list](#orgc8d5ce8)
+    1.  [Review Dwork & Roth Book chapter 3](#org456fb07)
+        1.  [Section 3.4 Exponential Mechanism](#orgfc272d7)
+        2.  [Section 3.5 Composition](#org60d2c08)
+        3.  [Section 3.6 Sparse Vector Technique](#orgfc7b0bb)
+5.  [<span class="timestamp-wrapper"><span class="timestamp">&lt;2019-12-30 Mon&gt; </span></span> Reading lists](#orgad1f2f3)
+    1.  [Review Differentially Private Data Analysis of Social Networks via Restricted Sensitivity](#orge7ad189)
+    2.  [Privacy-Preserving Triangle counting in large graphs](#orgde6b1f9)
 
 
 
-<a id="org1659e35"></a>
+<a id="org58b2ac7"></a>
+
+# <span class="timestamp-wrapper"><span class="timestamp">&lt;2020-05-18 Mon&gt; </span></span> Differentially Private SQL
+
+-   Assumption: DP at user level. Each user can be related to multiple entries.
+-   Issues the paper want to solve:
+    -   A user contributes to multiple rows in the same partition (1) and multiple partitions (3)
+    -   The group-by results may expose a group key (2): among 2 neighbors, a group key can exist in one and not the other.
+        -   Resolve using threshold technique (Sparse vector technique in Dwork's book)
+-   The library on github only implements primitive functions, other features have not been implemented yet.
+-   Key designs:
+    -   Column to map a user -> row (additional column of userid)
+    -   Primitive queries are computed using Laplace noises, with global sensitivities calculated by bounds of the inputs (as query parameters) 
+        -   Some bounds can be inferred from data (5.1.1)
+        -   Primitime queries can not create share-owned rows
+    -   What is "reservoir sampling"?
+        -   Guess: sampling with a constraint that each partition can have at most some fixed numbers of rows.
+    -   Reservoir sampling in the 1st phase (U) guarantees a fixed global stability
+    -   Main idea: Decompose a join/group queries by to join/group by each user first, then join/group the intermediate results.
+    -   A private query is divided into 2 phases:
+        -   The 1st phase non-privately aggregate by users x keys and limits the # of output rows for each user (by reservoir sampling)
+        -   The 2nd phase use primitive private functions to aggregate the (by user's output) and use threshold to report final outputs
+-   (1) is solved by forcing the aggregation in the 1st phase to group by userid x keys -> each (userid x keys) can create at most 1 row in U.
+-   (2) is solved by threshold at the end
+-   (3) is solved by reservoir sampling how many rows each userid have in U
+
+
+<a id="org1e57426"></a>
+
+# <span class="timestamp-wrapper"><span class="timestamp">&lt;2020-02-20 Thu&gt; </span></span> DPNE: Differentially Private Network Embedding
+
+-   Edge Privacy
+-   Naive baseline
+-   Laplace mechanism
+
+
+<a id="orge953ab0"></a>
 
 # <span class="timestamp-wrapper"><span class="timestamp">&lt;2020-02-20 Thu&gt; </span></span> Survey
 
 
-<a id="orgd0e5018"></a>
+<a id="org874c97e"></a>
 
 ## Section 3.1
 
@@ -35,7 +73,7 @@ The goal of papers this section is to maximize the number of (interactive) queri
 -   Database D can be changed any time in between queries
 
 
-<a id="org2d471e4"></a>
+<a id="orgfd85df1"></a>
 
 ### Interactive Privacy via the Median Mechanism (Roth'10)
 
@@ -50,7 +88,7 @@ The goal of papers this section is to maximize the number of (interactive) queri
 -   The mechanism can answer O(logklog|X|) hard queries
 
 
-<a id="org38797ce"></a>
+<a id="org5d49d98"></a>
 
 ### A multiplicative weights mechanism for privacy-preserving data analysis (Hardt'10)
 
@@ -61,7 +99,7 @@ The goal of papers this section is to maximize the number of (interactive) queri
     -   At each iteration, update a fractional database, which is a multiplicative weighted version of all previous iterations
 
 
-<a id="orgca3ea45"></a>
+<a id="orga12f09d"></a>
 
 ### Iterative constructions and private data release (Gupta'12)
 
@@ -74,7 +112,7 @@ The goal of papers this section is to maximize the number of (interactive) queri
         -   Difference between the noisy answer of a query of the last database to the answers of others are small
 
 
-<a id="org8a4a345"></a>
+<a id="org3bb4fab"></a>
 
 ### Exploiting metric structure for efficient private query release (Huang'14)
 
@@ -87,29 +125,29 @@ The goal of papers this section is to maximize the number of (interactive) queri
 -   This mechanism does not use Laplace mechanism
 
 
-<a id="org3148a3b"></a>
+<a id="orga443948"></a>
 
 ## 
 
 
-<a id="org9d63c87"></a>
+<a id="org0fc6feb"></a>
 
 ## Section 3.2
 
 
-<a id="org8c7acf8"></a>
+<a id="orgc8d5ce8"></a>
 
 # <span class="timestamp-wrapper"><span class="timestamp">&lt;2020-01-06 Mon&gt; </span></span> Reading list
 
 
-<a id="org9fb120d"></a>
+<a id="org456fb07"></a>
 
 ## Review Dwork & Roth Book chapter 3
 
 <./PDFs/dwork-roth-privacybook.pdf>
 
 
-<a id="org3e4db62"></a>
+<a id="orgfc272d7"></a>
 
 ### Section 3.4 Exponential Mechanism
 
@@ -119,7 +157,7 @@ The goal of papers this section is to maximize the number of (interactive) queri
 -   Exponential Mechanism guarantees the accuracy by a additive factor of the optimal utility score
 
 
-<a id="org18c31bc"></a>
+<a id="org60d2c08"></a>
 
 ### Section 3.5 Composition
 
@@ -129,17 +167,17 @@ The goal of papers this section is to maximize the number of (interactive) queri
 -   KL Distance. Max Distance. Approximate Max Distance
 
 
-<a id="org7f3f81c"></a>
+<a id="orgfc7b0bb"></a>
 
 ### Section 3.6 Sparse Vector Technique
 
 
-<a id="orgd329e11"></a>
+<a id="orgad1f2f3"></a>
 
 # <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-12-30 Mon&gt; </span></span> Reading lists
 
 
-<a id="org4bf8c84"></a>
+<a id="orge7ad189"></a>
 
 ## Review Differentially Private Data Analysis of Social Networks via Restricted Sensitivity
 
@@ -152,7 +190,7 @@ Both papers project an arbitrary graph to another graph space, where they can re
 While Shiva's paper uses Lipschitz extension to project a graph to a linear programming problem, this paper's method uses a more abstract method to generalize those projections. As long as there is a way to project the original graph space to a restricted one, and the distances of neighbor graphs after projected are bounded by a constant, it's possible to calculate a restricted sensitivity and use it as an alternative to the global sensitivity.
 
 
-<a id="orgc44648a"></a>
+<a id="orgde6b1f9"></a>
 
 ## Privacy-Preserving Triangle counting in large graphs
 
