@@ -4,6 +4,59 @@
 #+TAGS: URGENT(u) EMACS(e) RESEARCH(r) HOME(h) CLASS(c) BOOK(b)
 #+Title:Differential Privacy Agenda
 
+* <2020-06-07 Sun> Dwork's book chapter 4: Linear queries with correlated error
+  - Introduce methods to analyze/answer multiple queries
+    - to reduce noise <-> better accuracy and save privacy "budget" <-> more queries
+      - many papers prefer the term "budget", though Dwork book rarely mentions this term
+      - instead, they use "privacy level" or (\epsilon, \delta)-privacy guarantee
+    - by correlating noise (not adding noises independently)
+  - Idea: If 2 queries are linearly correlated, then noises are not necessarily indepedent
+  - Offline: SmallDB mechanism
+    - Main idea: Based on exponential mechanism, output a small sampled database from the same universe with the original, with probability propotional to how close it is from the original database (closeness is based on differences in queries' outputs)
+    - Privacy is derived from exponential mechanism
+    - The remaining is utility (accuracy):
+      - If we randomly sample elements of the original database, with high probability the sample database is close to the original (on outputs of queries)
+      - Other than that, the accuracy is based on exponential mechanism
+      - Also, we can use VC-Dimension of Q to replace log|Q|, in which we have tighter bound on accuracy
+  - Online: Multiplicative mechanism
+    - Main idea: the algorithm maintains a synthetic database and learn it along the way with queries. Only learning task uses noisy mechanisms and consumes privacy cost.
+    - Interactively, for each query:
+      - Compare the outputs of the synthetic database to the noisy output of the real database (via Laplace mechanism)
+	- If they're close, return the synthetic database
+	- If not, return the noisy output and update the synthetic database
+    - The number of updates is bounded:
+      - We start at a fixed divergence (between the synthetic database & the real database)
+      - Each update reduce the divergence
+      - The divergence is non-negative
+      - Then we have at most some amount of updates
+    - After the updates reach it optimal, then the the distance of synthetic database and real database (based on queries' outputs) are all small
+    - The threshold to update/release is based on Numeric Sparse (Sparse Vector technique)
+      - Accuracy then follows Numeric Spars
+  - Online vs Offline:
+
+
+* <2020-06-07 Sun> Karwa: Private Analysis of Graph Structure (also has a journal version)
+   - Edge Privacy
+   - Subgraph counting:
+     - Exponential Random Graph Models use sub graph counts
+     - Calculating clustering coefficient (for analyzing network data)
+   - Smooth sensitivity is NP-hard for some functions
+     - Counting triangles has efficient smooth sensitivity
+   - Rastogi's paper: calculate high probability bound on local sensitivity
+   - 1.2: some works about node and edge privacy (check if necessary)
+   - Laplace vs Cauchy
+   - Smooth sensitivity for k-star counting
+     - Exercise: calculate \beta-smooth sensitivity of counting triangles (Nissim claim 3.13 full version)
+   - Decompose smooth sensitivity: Decompose by distance or Decompose by elements (edge)
+   - Privately bound on local sensitivity for k-triangle counting
+     - They find a bound on the local sensitivity of the local sensitivity (with privacy)
+     
+* <2020-06-07 Sun> Erdos-Reyni paper
+  - To estimate the edge density of a degree-concentrated graph
+  - By estimating the number of edges privately
+  - Question: Compare with Shiva's section 4 about counting egdes
+  - Main idea: create a function to approximate number of edges so that the function has low local sensitivity. Then prove that the local sensitivity satisfies smooth sensitivity. In order for the function to have low(bounded) local sensitivity, the degrees must be concentrated.
+  - For Erdos-Reyni graphs, the concentration of node degrees can be estimated -> then apply the method above
 
 * <2020-05-18 Mon> Differentially Private SQL
   - Assumption: DP at user level. Each user can be related to multiple entries.
@@ -33,7 +86,7 @@
   - Naive baseline
   - Laplace mechanism
 
-* <2020-02-20 Thu> Survey
+* <2020-02-20 Thu> Survey paper
 ** Section 3.1
    The goal of papers this section is to maximize the number of (interactive) queries given a fixed amount of privacy loss and accuracy (usefulness). Traditionally, using Laplace mechanism, the magnitude of noise must scale linearly to the number of answered queries to preserve privacy. Given a fixed level of usefulness, Laplace mechanism can only answer a linear number of queries to the database size. There are several common settings of papers in this sections:
    - Interactive: the k-th query is released after answers from 1, .., k-1th queries are known
