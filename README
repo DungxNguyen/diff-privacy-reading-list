@@ -4,7 +4,14 @@
 #+TAGS: URGENT(u) EMACS(e) RESEARCH(r) HOME(h) CLASS(c) BOOK(b)
 #+Title:Differential Privacy Agenda
 
+* <2020-06-08 Mon> Dwork's book chapter 7
+
 * <2020-06-07 Sun> Dwork's book chapter 4: Linear queries with correlated error
+  - Assumption: 
+    - databases are represenented as histogram of the universe. 
+    - queries are linear queries:
+      - no correlation between elements of a database
+      - map each element to a value in the interval [0, 1]
   - Introduce methods to analyze/answer multiple queries
     - to reduce noise <-> better accuracy and save privacy "budget" <-> more queries
       - many papers prefer the term "budget", though Dwork book rarely mentions this term
