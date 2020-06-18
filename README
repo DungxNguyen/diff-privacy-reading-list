@@ -5,6 +5,29 @@
 #+Title:Differential Privacy Agenda
 
 * <2020-06-08 Mon> Dwork's book chapter 7
+  - Apply when the worst case sensitivity is unbound or difficult to analyze
+    
+** Subsample and aggregate
+
+** Propose test release
+   - Same as Tutorial section 3.2
+
+** Stability and privacy
+   - Distance to instability: Same as Tutorial section 3.3
+     - It uses Pertubation Stabilitity: Only feasible if a function f(x) is stable (local sensitivity is 0)
+     - Idea:
+       - If their neighbors to some distances are all stable, we can release f(x) privately
+       - If not, release Null
+     - Generally difficult to compute. Several pratical functions: median, mode
+   - A_samp: Bootstrapping thu Subsample and aggregate
+     - It uses q-subsampling stability: f(x) = f(\hat{x}) with prob > 3/4 when elements of \hat{x} are sampled independently with prob q
+     - sampled subsets are not necessarily disjoint
+     - Idea:
+       - If f(x) is q-subsampling stabability
+       - Then we sample x_1, x_2, ... x_m samples from x and produces z_i = f(x_i)
+       - Then the function returns the mode of z_1, z_2 ..., z_m is Pertubation Stable (on x) then releasing the mode of z_i is differentially private
+       - W.h.p, the mode of z_i is the same with f(x)
+
 
 * <2020-06-07 Sun> Dwork's book chapter 4: Linear queries with correlated error
   - Assumption: 
@@ -31,6 +54,8 @@
       - Compare the outputs of the synthetic database to the noisy output of the real database (via Laplace mechanism)
 	- If they're close, return the synthetic database
 	- If not, return the noisy output and update the synthetic database
+    - Database update mechanism:
+*** TODO Database update mechanism
     - The number of updates is bounded:
       - We start at a fixed divergence (between the synthetic database & the real database)
       - Each update reduce the divergence
