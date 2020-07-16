@@ -4,6 +4,25 @@
 #+TAGS: URGENT(u) EMACS(e) RESEARCH(r) HOME(h) CLASS(c) BOOK(b)
 #+Title:Differential Privacy Agenda
 
+* <2020-07-16 Thu> 
+** Last meeting:
+   - IPDPS Target: Fast private alg
+   - Consider high-order local sensitivity of path counting
+ 
+** Reading: Differentially Private Combinatorial Optimization
+   - General Idea:
+     - For a combinatorial algorithm, a solution is a combination of elements that optimize some metrics
+     - Then use an approximation algorithm to generate a set of combinations close enough to the optimal solution with have high probabilities
+     - Then use the exponential mechanism to output the private solution from the set of candidates
+   - Private Min Cut alg
+     - Step 2: Propose a set of added edges
+     - Step 3: Use exponential mechanism, privatly choose a set of added egdes so that its min cut > $4 ln n / \epsilon$
+     - Step 4: Use exponential mechanism to return a cut based on its cost
+     - Note:
+       - The number of cuts within an additive factor is bounded (Kar93)
+       - There are exponential number of cuts in step 4. However, Kar93 can output a cut within a constant factor with some polynomial probabilities. Then, a polynomial runs of Kar93 can output all the cuts w.h.p.
+
+
 * <2020-06-08 Mon> Dwork's book chapter 7
   - Apply when the worst case sensitivity is unbound or difficult to analyze
     
@@ -25,7 +44,7 @@
      - Idea:
        - If f(x) is q-subsampling stabability
        - Then we sample x_1, x_2, ... x_m samples from x and produces z_i = f(x_i)
-       - Then the function returns the mode of z_1, z_2 ..., z_m is Pertubation Stable (on x) then releasing the mode of z_i is differentially private
+       - Then the function "returns the mode of z_1, z_2 ..., z_m" is Pertubation Stable (on x) then releasing the mode of z_i is differentially private
        - W.h.p, the mode of z_i is the same with f(x)
 
 
@@ -91,27 +110,28 @@
   - For Erdos-Reyni graphs, the concentration of node degrees can be estimated -> then apply the method above
 
 * <2020-05-18 Mon> Differentially Private SQL
-  - Assumption: DP at user level. Each user can be related to multiple entries.
+  - Assumption: DP at user level. Each user can be related to multiple entries -> simplest case: multiple rows belong to one user but a single row only belongs to one user.
   - Issues the paper want to solve:
+    - A partition of database is a distinct combination of several keys
     - A user contributes to multiple rows in the same partition (1) and multiple partitions (3)
-    - The group-by results may expose a group key (2): among 2 neighbors, a group key can exist in one and not the other.
-      - Resolve using threshold technique (Sparse vector technique in Dwork's book)
-  - The library on github only implements primitive functions, other features have not been implemented yet.
-  - Key designs:
-    - Column to map a user -> row (additional column of userid)
-    - Primitive queries are computed using Laplace noises, with global sensitivities calculated by bounds of the inputs (as query parameters) 
-      - Some bounds can be inferred from data (5.1.1)
-      - Primitime queries can not create share-owned rows
-    - What is "reservoir sampling"?
-      - Guess: sampling with a constraint that each partition can have at most some fixed numbers of rows.
-    - Reservoir sampling in the 1st phase (U) guarantees a fixed global stability
-    - Main idea: Decompose a join/group queries by to join/group by each user first, then join/group the intermediate results.
+    - The group-by results may expose a group key (2): among 2 neighbors, a group key can exist in one and not the other -> expose user with unique partition keys. -> naive solution: count all possible combinations, but it depends on the domain of each keys, sometimes unbounded (unlimited) combinations.
+      - Resolve using threshold technique (Sparse vector technique in Dwork's book), only report if the noisy counts are above some threshold
+  - The library on github only implements primitive (sum, average, median) functions, other features have not been implemented yet.
+  - Main idea: Decompose a join/group queries by to join/group by each user first, then join/group the intermediate results -> user-disjoint queries.
     - A private query is divided into 2 phases:
       - The 1st phase non-privately aggregate by users x keys and limits the # of output rows for each user (by reservoir sampling)
       - The 2nd phase use primitive private functions to aggregate the (by user's output) and use threshold to report final outputs
-  - (1) is solved by forcing the aggregation in the 1st phase to group by userid x keys -> each (userid x keys) can create at most 1 row in U.
-  - (2) is solved by threshold at the end
-  - (3) is solved by reservoir sampling how many rows each userid have in U
+  - Some important designs:
+    - Column to map a user -> row (additional column of userid)
+    - Primitive queries are computed using Laplace noises, with global sensitivities calculated by bounds of the inputs (as query parameters) 
+      - Some bounds of the values can be inferred from data (5.1.1)
+      - Primitime queries can not create share-owned rows (no row can contains data from 2 or more users)
+    - What is "reservoir sampling"?
+      - Guess: sampling with a constraint that each partition can have at most some fixed numbers of rows.
+    - Reservoir sampling in the 1st phase (U) guarantees a fixed global stability
+  - (1) is solved by forcing the aggregation in the 1st phase to group by cross product of "userid x keys" -> each combination of (userid x other partition keys) can create at most 1 row in U.
+  - (2) is solved by threshold method
+  - (3) is solved by reservoir sampling how many rows each userid have in U (max number of combinations can share a user id) 
 
 * <2020-02-20 Thu> DPNE: Differentially Private Network Embedding
   - Edge Privacy
