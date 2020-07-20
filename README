@@ -4,6 +4,15 @@
 #+TAGS: URGENT(u) EMACS(e) RESEARCH(r) HOME(h) CLASS(c) BOOK(b)
 #+Title:Differential Privacy Agenda
 
+* <2020-07-20 Mon>
+** Last meeting:
+   - Go over the overleaf to check the proof
+   - Change the question: rather than the concentration of LS_q_H, we can prove that LS_q_H is not too large
+   - Question: How to release differentially private versions of probabilistics queries.
+** Reading today
+   - Google paper: https://arxiv.org/pdf/1909.01917
+   - Optimization paper: https://arxiv.org/pdf/0903.4510
+
 * <2020-07-16 Thu> 
 ** Last meeting:
    - IPDPS Target (Deadline October 2020): Fast private alg
