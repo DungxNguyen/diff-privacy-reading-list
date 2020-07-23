@@ -4,6 +4,12 @@
 #+TAGS: URGENT(u) EMACS(e) RESEARCH(r) HOME(h) CLASS(c) BOOK(b)
 #+Title:Differential Privacy Agenda
 
+* <2020-07-23 Thu>
+** Last meeting:
+   - Find a private mechanism to count colorful paths
+   - Check the math of color sampling to preserve privacy for counting colorful paths
+   - Reading optimization paper
+
 * <2020-07-20 Mon>
 ** Last meeting:
    - Go over the overleaf to check the proof

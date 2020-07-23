@@ -1,47 +1,63 @@
 
 # Table of Contents
 
-1.  [<span class="timestamp-wrapper"><span class="timestamp">&lt;2020-07-20 Mon&gt;</span></span>](#org5879430)
-    1.  [Last meeting:](#orgb85f136)
-    2.  [Reading today](#org56cef75)
-2.  [<span class="timestamp-wrapper"><span class="timestamp">&lt;2020-07-16 Thu&gt;</span></span>](#orgd499c35)
-    1.  [Last meeting:](#org8894f22)
-    2.  [Reading: Differentially Private Combinatorial Optimization](#org9d4a223)
-3.  [<span class="timestamp-wrapper"><span class="timestamp">&lt;2020-06-08 Mon&gt; </span></span> Dwork's book chapter 7](#org4b10d7a)
-    1.  [Subsample and aggregate](#orgb22a696)
-    2.  [Propose test release](#orgf899c17)
-    3.  [Stability and privacy](#org3e0b6dc)
-4.  [<span class="timestamp-wrapper"><span class="timestamp">&lt;2020-06-07 Sun&gt; </span></span> Dwork's book chapter 4: Linear queries with correlated error](#orgb2a3aed)
-        1.  [Database update mechanism](#org77b7474)
-5.  [<span class="timestamp-wrapper"><span class="timestamp">&lt;2020-06-07 Sun&gt; </span></span> Karwa: Private Analysis of Graph Structure (also has a journal version)](#org0c7d5c1)
-6.  [<span class="timestamp-wrapper"><span class="timestamp">&lt;2020-06-07 Sun&gt; </span></span> Erdos-Reyni paper](#orge906ed0)
-7.  [<span class="timestamp-wrapper"><span class="timestamp">&lt;2020-05-18 Mon&gt; </span></span> Differentially Private SQL](#orga28be8a)
-8.  [<span class="timestamp-wrapper"><span class="timestamp">&lt;2020-02-20 Thu&gt; </span></span> DPNE: Differentially Private Network Embedding](#org60d8875)
-9.  [<span class="timestamp-wrapper"><span class="timestamp">&lt;2020-02-20 Thu&gt; </span></span> Survey paper](#org0e8647e)
-    1.  [Section 3.1](#org69a85c8)
-        1.  [Interactive Privacy via the Median Mechanism (Roth'10)](#org259de2f)
-        2.  [A multiplicative weights mechanism for privacy-preserving data analysis (Hardt'10)](#org515ba7a)
-        3.  [Iterative constructions and private data release (Gupta'12)](#orgab98edd)
-        4.  [Exploiting metric structure for efficient private query release (Huang'14)](#org73e22c8)
-    2.  [](#org2756d37)
-    3.  [Section 3.2](#org308ff6d)
-10. [<span class="timestamp-wrapper"><span class="timestamp">&lt;2020-01-06 Mon&gt; </span></span> Reading list](#org98c9c7b)
-    1.  [Review Dwork & Roth Book chapter 3](#orgb7501c3)
-        1.  [Section 3.4 Exponential Mechanism](#org0cd5de0)
-        2.  [Section 3.5 Composition](#orgd527eec)
-        3.  [Section 3.6 Sparse Vector Technique](#orgd99031e)
-11. [<span class="timestamp-wrapper"><span class="timestamp">&lt;2019-12-30 Mon&gt; </span></span> Reading lists](#orgd585e2c)
-    1.  [Review Differentially Private Data Analysis of Social Networks via Restricted Sensitivity](#org50cbe04)
-    2.  [Privacy-Preserving Triangle counting in large graphs](#orgd5aa3c5)
+1.  [<span class="timestamp-wrapper"><span class="timestamp">&lt;2020-07-23 Thu&gt;</span></span>](#org343329b)
+    1.  [Last meeting:](#org38b8609)
+2.  [<span class="timestamp-wrapper"><span class="timestamp">&lt;2020-07-20 Mon&gt;</span></span>](#orgd4fba16)
+    1.  [Last meeting:](#org66ada97)
+    2.  [Reading today](#org900ae84)
+3.  [<span class="timestamp-wrapper"><span class="timestamp">&lt;2020-07-16 Thu&gt;</span></span>](#orga2b6b10)
+    1.  [Last meeting:](#orgdcb6dd3)
+    2.  [Reading: Differentially Private Combinatorial Optimization](#orgf9f7e7b)
+4.  [<span class="timestamp-wrapper"><span class="timestamp">&lt;2020-06-08 Mon&gt; </span></span> Dwork's book chapter 7](#org087b568)
+    1.  [Subsample and aggregate](#orgb046144)
+    2.  [Propose test release](#org486423d)
+    3.  [Stability and privacy](#org0366fe4)
+5.  [<span class="timestamp-wrapper"><span class="timestamp">&lt;2020-06-07 Sun&gt; </span></span> Dwork's book chapter 4: Linear queries with correlated error](#org7314b4e)
+        1.  [Database update mechanism](#org76e940a)
+6.  [<span class="timestamp-wrapper"><span class="timestamp">&lt;2020-06-07 Sun&gt; </span></span> Karwa: Private Analysis of Graph Structure (also has a journal version)](#orgb41e4f6)
+7.  [<span class="timestamp-wrapper"><span class="timestamp">&lt;2020-06-07 Sun&gt; </span></span> Erdos-Reyni paper](#org98a24bb)
+8.  [<span class="timestamp-wrapper"><span class="timestamp">&lt;2020-05-18 Mon&gt; </span></span> Differentially Private SQL](#org7ef005a)
+9.  [<span class="timestamp-wrapper"><span class="timestamp">&lt;2020-02-20 Thu&gt; </span></span> DPNE: Differentially Private Network Embedding](#orgc21a941)
+10. [<span class="timestamp-wrapper"><span class="timestamp">&lt;2020-02-20 Thu&gt; </span></span> Survey paper](#org6835684)
+    1.  [Section 3.1](#org5316d22)
+        1.  [Interactive Privacy via the Median Mechanism (Roth'10)](#orgb7c72cd)
+        2.  [A multiplicative weights mechanism for privacy-preserving data analysis (Hardt'10)](#orgb7e2140)
+        3.  [Iterative constructions and private data release (Gupta'12)](#org0556c56)
+        4.  [Exploiting metric structure for efficient private query release (Huang'14)](#org9aa8002)
+    2.  [](#org1bcb5be)
+    3.  [Section 3.2](#org4b2340c)
+11. [<span class="timestamp-wrapper"><span class="timestamp">&lt;2020-01-06 Mon&gt; </span></span> Reading list](#orgdb5dabb)
+    1.  [Review Dwork & Roth Book chapter 3](#orgad0ed8c)
+        1.  [Section 3.4 Exponential Mechanism](#orgd67eedc)
+        2.  [Section 3.5 Composition](#org0b8a7a2)
+        3.  [Section 3.6 Sparse Vector Technique](#orgb1387df)
+12. [<span class="timestamp-wrapper"><span class="timestamp">&lt;2019-12-30 Mon&gt; </span></span> Reading lists](#org6bfa060)
+    1.  [Review Differentially Private Data Analysis of Social Networks via Restricted Sensitivity](#org42c57e0)
+    2.  [Privacy-Preserving Triangle counting in large graphs](#org38c7662)
 
 
 
-<a id="org5879430"></a>
+<a id="org343329b"></a>
+
+# <span class="timestamp-wrapper"><span class="timestamp">&lt;2020-07-23 Thu&gt;</span></span>
+
+
+<a id="org38b8609"></a>
+
+## Last meeting:
+
+-   Find a private mechanism to count colorful paths
+-   Check the math of color sampling to preserve privacy for counting colorful paths
+-   Reading optimization paper
+
+
+<a id="orgd4fba16"></a>
 
 # <span class="timestamp-wrapper"><span class="timestamp">&lt;2020-07-20 Mon&gt;</span></span>
 
 
-<a id="orgb85f136"></a>
+<a id="org66ada97"></a>
 
 ## Last meeting:
 
@@ -50,7 +66,7 @@
 -   Question: How to release differentially private versions of probabilistics queries.
 
 
-<a id="org56cef75"></a>
+<a id="org900ae84"></a>
 
 ## Reading today
 
@@ -58,12 +74,12 @@
 -   Optimization paper: <https://arxiv.org/pdf/0903.4510>
 
 
-<a id="orgd499c35"></a>
+<a id="orga2b6b10"></a>
 
 # <span class="timestamp-wrapper"><span class="timestamp">&lt;2020-07-16 Thu&gt;</span></span>
 
 
-<a id="org8894f22"></a>
+<a id="orgdcb6dd3"></a>
 
 ## Last meeting:
 
@@ -71,7 +87,7 @@
 -   Consider high-order local sensitivity of path counting
 
 
-<a id="org9d4a223"></a>
+<a id="orgf9f7e7b"></a>
 
 ## Reading: Differentially Private Combinatorial Optimization
 
@@ -88,26 +104,26 @@
         -   There are exponential number of cuts in step 4. However, Kar93 can output a cut within a constant factor with some polynomial probabilities. Then, a polynomial runs of Kar93 can output all the cuts w.h.p.
 
 
-<a id="org4b10d7a"></a>
+<a id="org087b568"></a>
 
 # <span class="timestamp-wrapper"><span class="timestamp">&lt;2020-06-08 Mon&gt; </span></span> Dwork's book chapter 7
 
 -   Apply when the worst case sensitivity is unbound or difficult to analyze
 
 
-<a id="orgb22a696"></a>
+<a id="orgb046144"></a>
 
 ## Subsample and aggregate
 
 
-<a id="orgf899c17"></a>
+<a id="org486423d"></a>
 
 ## Propose test release
 
 -   Same as Tutorial section 3.2
 
 
-<a id="org3e0b6dc"></a>
+<a id="org0366fe4"></a>
 
 ## Stability and privacy
 
@@ -127,7 +143,7 @@
         -   W.h.p, the mode of z<sub>i</sub> is the same with f(x)
 
 
-<a id="orgb2a3aed"></a>
+<a id="org7314b4e"></a>
 
 # <span class="timestamp-wrapper"><span class="timestamp">&lt;2020-06-07 Sun&gt; </span></span> Dwork's book chapter 4: Linear queries with correlated error
 
@@ -158,7 +174,7 @@
     -   Database update mechanism:
 
 
-<a id="org77b7474"></a>
+<a id="org76e940a"></a>
 
 ### TODO Database update mechanism
 
@@ -174,7 +190,7 @@
 -   Online vs Offline:
 
 
-<a id="org0c7d5c1"></a>
+<a id="orgb41e4f6"></a>
 
 # <span class="timestamp-wrapper"><span class="timestamp">&lt;2020-06-07 Sun&gt; </span></span> Karwa: Private Analysis of Graph Structure (also has a journal version)
 
@@ -194,7 +210,7 @@
     -   They find a bound on the local sensitivity of the local sensitivity (with privacy)
 
 
-<a id="orge906ed0"></a>
+<a id="org98a24bb"></a>
 
 # <span class="timestamp-wrapper"><span class="timestamp">&lt;2020-06-07 Sun&gt; </span></span> Erdos-Reyni paper
 
@@ -205,7 +221,7 @@
 -   For Erdos-Reyni graphs, the concentration of node degrees can be estimated -> then apply the method above
 
 
-<a id="orga28be8a"></a>
+<a id="org7ef005a"></a>
 
 # <span class="timestamp-wrapper"><span class="timestamp">&lt;2020-05-18 Mon&gt; </span></span> Differentially Private SQL
 
@@ -233,7 +249,7 @@
 -   (3) is solved by reservoir sampling how many rows each userid have in U (max number of combinations can share a user id)
 
 
-<a id="org60d8875"></a>
+<a id="orgc21a941"></a>
 
 # <span class="timestamp-wrapper"><span class="timestamp">&lt;2020-02-20 Thu&gt; </span></span> DPNE: Differentially Private Network Embedding
 
@@ -242,12 +258,12 @@
 -   Laplace mechanism
 
 
-<a id="org0e8647e"></a>
+<a id="org6835684"></a>
 
 # <span class="timestamp-wrapper"><span class="timestamp">&lt;2020-02-20 Thu&gt; </span></span> Survey paper
 
 
-<a id="org69a85c8"></a>
+<a id="org5316d22"></a>
 
 ## Section 3.1
 
@@ -257,7 +273,7 @@ The goal of papers this section is to maximize the number of (interactive) queri
 -   Database D can be changed any time in between queries
 
 
-<a id="org259de2f"></a>
+<a id="orgb7c72cd"></a>
 
 ### Interactive Privacy via the Median Mechanism (Roth'10)
 
@@ -272,7 +288,7 @@ The goal of papers this section is to maximize the number of (interactive) queri
 -   The mechanism can answer O(logklog|X|) hard queries
 
 
-<a id="org515ba7a"></a>
+<a id="orgb7e2140"></a>
 
 ### A multiplicative weights mechanism for privacy-preserving data analysis (Hardt'10)
 
@@ -283,7 +299,7 @@ The goal of papers this section is to maximize the number of (interactive) queri
     -   At each iteration, update a fractional database, which is a multiplicative weighted version of all previous iterations
 
 
-<a id="orgab98edd"></a>
+<a id="org0556c56"></a>
 
 ### Iterative constructions and private data release (Gupta'12)
 
@@ -296,7 +312,7 @@ The goal of papers this section is to maximize the number of (interactive) queri
         -   Difference between the noisy answer of a query of the last database to the answers of others are small
 
 
-<a id="org73e22c8"></a>
+<a id="org9aa8002"></a>
 
 ### Exploiting metric structure for efficient private query release (Huang'14)
 
@@ -309,29 +325,29 @@ The goal of papers this section is to maximize the number of (interactive) queri
 -   This mechanism does not use Laplace mechanism
 
 
-<a id="org2756d37"></a>
+<a id="org1bcb5be"></a>
 
 ## 
 
 
-<a id="org308ff6d"></a>
+<a id="org4b2340c"></a>
 
 ## Section 3.2
 
 
-<a id="org98c9c7b"></a>
+<a id="orgdb5dabb"></a>
 
 # <span class="timestamp-wrapper"><span class="timestamp">&lt;2020-01-06 Mon&gt; </span></span> Reading list
 
 
-<a id="orgb7501c3"></a>
+<a id="orgad0ed8c"></a>
 
 ## Review Dwork & Roth Book chapter 3
 
 <./PDFs/dwork-roth-privacybook.pdf>
 
 
-<a id="org0cd5de0"></a>
+<a id="orgd67eedc"></a>
 
 ### Section 3.4 Exponential Mechanism
 
@@ -341,7 +357,7 @@ The goal of papers this section is to maximize the number of (interactive) queri
 -   Exponential Mechanism guarantees the accuracy by a additive factor of the optimal utility score
 
 
-<a id="orgd527eec"></a>
+<a id="org0b8a7a2"></a>
 
 ### Section 3.5 Composition
 
@@ -351,17 +367,17 @@ The goal of papers this section is to maximize the number of (interactive) queri
 -   KL Distance. Max Distance. Approximate Max Distance
 
 
-<a id="orgd99031e"></a>
+<a id="orgb1387df"></a>
 
 ### Section 3.6 Sparse Vector Technique
 
 
-<a id="orgd585e2c"></a>
+<a id="org6bfa060"></a>
 
 # <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-12-30 Mon&gt; </span></span> Reading lists
 
 
-<a id="org50cbe04"></a>
+<a id="org42c57e0"></a>
 
 ## Review Differentially Private Data Analysis of Social Networks via Restricted Sensitivity
 
@@ -374,7 +390,7 @@ Both papers project an arbitrary graph to another graph space, where they can re
 While Shiva's paper uses Lipschitz extension to project a graph to a linear programming problem, this paper's method uses a more abstract method to generalize those projections. As long as there is a way to project the original graph space to a restricted one, and the distances of neighbor graphs after projected are bounded by a constant, it's possible to calculate a restricted sensitivity and use it as an alternative to the global sensitivity.
 
 
-<a id="orgd5aa3c5"></a>
+<a id="org38c7662"></a>
 
 ## Privacy-Preserving Triangle counting in large graphs
 
